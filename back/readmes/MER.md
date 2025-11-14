@@ -1,49 +1,4 @@
-estructura
-
-# 🗄️ ESTRUCTURA DE BASE DE DATOS - SABOREA COLOMBIA
-## Directorio Gastronómico de Colombia
-
----
-
-## 📋 TABLA DE CONTENIDOS
-1. [Diagrama Entidad-Relación](#diagrama-entidad-relación)
-2. [Especificación de Entidades](#especificación-de-entidades)
-3. [Entidades TypeORM](#entidades-typeorm)
-4. [Relaciones Implementadas](#relaciones-implementadas)
-5. [Validaciones y DTOs](#validaciones-y-dtos)
-
----
-
-## 🎨 DIAGRAMA ENTIDAD-RELACIÓN
-
-
-
----
-
-## 📊 ESPECIFICACIÓN DE ENTIDADES
-
-### 1️⃣ ENTIDAD: USUARIO
-
-**Descripción:** Gestiona usuarios del sistema con roles diferenciados (usuario, administrador).
-
-| Campo | Tipo | Restricciones | Descripción |
-|-------|------|-----------------|-------------|
-| `id` | UUID | PK, NOT NULL | Identificador único |
-| `nombre` | VARCHAR(255) | NOT NULL | Nombre completo del usuario |
-| `email` | VARCHAR(255) | UNIQUE, NOT NULL | Email único para login |
-| `contraseña` | VARCHAR(255) | NOT NULL | Contraseña hasheada con bcrypt |
-| `rol` | ENUM | DEFAULT 'usuario' | 'usuario' \| 'administrador' |
-| `activo` | BOOLEAN | DEFAULT true | Estado de la cuenta |
-| `createdAt` | TIMESTAMP | NOT NULL | Fecha de creación |
-| `updatedAt` | TIMESTAMP | NOT NULL | Fecha de última actualización |
-
-**Relaciones:**
-- 1:N con REGIÓN (crear/editar)
-- 1:N con CIUDAD (crear/editar)
-- 1:N con PLATO (crear/editar)
-- 1:N con RESTAURANTE (crear/editar)
-
----
+- [Entidades relacionadas](/back/img/relacionEntidades.png)
 
 ### 2️⃣ ENTIDAD: REGIÓN
 
@@ -62,12 +17,7 @@ estructura
 - 1:N con CIUDAD (región contiene ciudades)
 - 1:N con PLATO (región contiene platos)
 
-**Ejemplos:**
-- Caribe
-- Andina
-- Pacífica
-- Orinoquía
-- Amazonia
+
 
 ---
 
@@ -88,14 +38,7 @@ estructura
 - N:1 con REGIÓN (muchas ciudades en una región)
 - 1:N con RESTAURANTE (ciudad contiene restaurantes)
 
-**Ejemplos por Región:**
-- Caribe: Cartagena, Santa Marta
-- Andina: Bogotá, Medellín
-- Pacífica: Cali, Buenaventura
-- Orinoquía: Villavicencio, Puerto López
-- Amazonia: Leticia, Puerto Nariño
 
----
 
 ### 4️⃣ ENTIDAD: PLATO TÍPICO
 
@@ -116,18 +59,6 @@ estructura
 **Relaciones:**
 - N:1 con REGIÓN (muchos platos en una región)
 - N:M con RESTAURANTE (vía PLATO_RESTAURANTE)
-
-**Ejemplo Completo - Bandeja Paisa:**
-```
-nombre: "Bandeja Paisa"
-descripcion: "Plato contundente y variado típico de Antioquia"
-historia: "Surge de la mezcla entre tradición española e ingredientes 
-          locales. Era comida de arrieros antes de viajes por montañas."
-ingredientes: "Frijoles, arroz, carne molida, huevo frito, arepa, 
-              aguacate, tomate, patacón, queso fresco, chorizo, morcilla"
-imagenUrl: "https://..."
-regionId: <ID_ANDINA>
-```
 
 ---
 

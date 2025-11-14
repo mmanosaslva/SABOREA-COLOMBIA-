@@ -29,3 +29,4 @@ pg: Driver de PostgreSQL para conectarse a la BD
 ### 5. Documentación API
 ````npm install @nestjs/swagger swagger-ui-express````
 * @nestjs/swagger: Integra Swagger en NestJS
+* * **swagger-ui-express:** Interfaz visual en http://localhost:3000/api
