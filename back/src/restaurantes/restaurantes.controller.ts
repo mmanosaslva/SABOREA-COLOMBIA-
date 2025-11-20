@@ -9,7 +9,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 
 @ApiTags('restaurantes')
-@ApiBearerAuth()
+@ApiBearerAuth('JWT-auth') 
 @Controller('restaurantes')
 @UseGuards(JwtAuthGuard)
 export class RestaurantesController {

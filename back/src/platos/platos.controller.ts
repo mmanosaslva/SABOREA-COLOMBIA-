@@ -8,7 +8,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 
 @ApiTags('platos')
-@ApiBearerAuth()
+@ApiBearerAuth('JWT-auth') 
 @Controller('platos')
 @UseGuards(JwtAuthGuard)
 export class PlatosController {
