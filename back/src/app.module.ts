@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { RegionesModule } from './regiones/regiones.module';
 import { CiudadesModule } from './ciudades/ciudades.module';
+import { PlatosModule } from './platos/platos.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CiudadesModule } from './ciudades/ciudades.module';
     AuthModule,
     RegionesModule,
     CiudadesModule,
+    PlatosModule,
   ],
   controllers: [],
   providers: [],
