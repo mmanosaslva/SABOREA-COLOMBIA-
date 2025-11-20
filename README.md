@@ -1,5 +1,7 @@
 # 🍴 SABOREA COLOMBIA - API Backend
 
+![MER - Saborea Colombia](./back/img/saboreaCol.jpg)
+
 **Directorio Gastronómico de Colombia** 
 
 ## 📚 Documentación Completa
@@ -10,6 +12,8 @@
 4. [Endpoints](https://github.com/mmanosaslva/SaboreaColombia2/blob/main/back/readmes/04-endpoints.md)
 5. [Casos de Uso](https://github.com/mmanosaslva/SaboreaColombia2/blob/main/back/readmes/05-casos-uso.md)
 6. [Docker setup](https://github.com/mmanosaslva/SaboreaColombia2/blob/main/back/readmes/06-docker-setup.md)
+7. [Capturas](https://github.com/mmanosaslva/SABOREA-COLOMBIA-/tree/backend/back/capturas)
+8. [Despliegue](https://saborea-colombia.onrender.com/api/docs)
   
 ## Ejecucion rapida
 
