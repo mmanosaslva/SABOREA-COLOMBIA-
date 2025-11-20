@@ -5,7 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { RegionesModule } from './regiones/regiones.module';
 import { CiudadesModule } from './ciudades/ciudades.module';
 import { PlatosModule } from './platos/platos.module';
-
+import { RestaurantesModule } from './restaurantes/restaurantes.module'; 
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -23,6 +23,7 @@ import { PlatosModule } from './platos/platos.module';
     RegionesModule,
     CiudadesModule,
     PlatosModule,
+    RestaurantesModule,
   ],
   controllers: [],
   providers: [],

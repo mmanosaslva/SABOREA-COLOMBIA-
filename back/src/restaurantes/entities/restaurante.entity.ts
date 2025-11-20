@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
 import { CiudadEntity } from '../../ciudades/entities/ciudad.entity';
+import { PlatoEntity } from '../../platos/entities/plato.entity';
 
 @Entity('restaurante')
 export class RestauranteEntity {
@@ -29,6 +30,10 @@ export class RestauranteEntity {
 
   @ManyToOne(() => CiudadEntity, { eager: true, onDelete: 'CASCADE' })
   ciudad: CiudadEntity;
+
+   @ManyToMany(() => PlatoEntity, plato => plato.restaurantes, { eager: true })
+  @JoinTable()
+  platos: PlatoEntity[];
 
   @CreateDateColumn()
   createdAt: Date;

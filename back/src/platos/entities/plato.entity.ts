@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, ManyToMany } from 'typeorm'; 
 import { RegionEntity } from '../../regiones/entities/region.entity';
+import { RestauranteEntity } from '../../restaurantes/entities/restaurante.entity';
 
 @Entity('plato')
 export class PlatoEntity {
@@ -26,6 +27,9 @@ export class PlatoEntity {
 
   @ManyToOne(() => RegionEntity, { eager: true, onDelete: 'CASCADE' })
   region: RegionEntity;
+
+  @ManyToMany(() => RestauranteEntity, restaurante => restaurante.platos)
+restaurantes: RestauranteEntity[];
 
   @CreateDateColumn()
   createdAt: Date;
