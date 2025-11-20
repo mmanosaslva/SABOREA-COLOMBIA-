@@ -6,7 +6,10 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // 🔧 CONFIGURACIÓN SWAGGER
+  // ✅ PRIMERO: Prefijo global (ANTES de Swagger)
+  app.setGlobalPrefix('api');
+
+  // ✅ LUEGO: Configuración Swagger
   const config = new DocumentBuilder()
     .setTitle('🍽️ Saborea Colombia API')
     .setDescription('API para la gestión gastronómica de Colombia')
@@ -20,20 +23,20 @@ async function bootstrap() {
         description: 'Ingresa tu token JWT',
         in: 'header',
       },
-      'JWT-auth', // Este nombre debe coincidir con @ApiBearerAuth('JWT-auth')
+      'JWT-auth',
     )
     .build();
 
-  const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, config, {
+    ignoreGlobalPrefix: false,
+  });
+
   SwaggerModule.setup('api/docs', app, document, {
     customSiteTitle: 'Saborea Colombia API',
     swaggerOptions: {
-      persistAuthorization: true, // Mantiene el token entre sesiones
+      persistAuthorization: true,
     },
   });
-
-  // Prefijo global para todas las rutas
-  app.setGlobalPrefix('api');
 
   // Validación automática de DTOs
   app.useGlobalPipes(
